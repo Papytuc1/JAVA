@@ -1,7 +1,7 @@
 package semaine4;
 
 import java.util.Scanner;
-//test
+
 public class Exo13 {
 
 	public static void main(String[] args) {
