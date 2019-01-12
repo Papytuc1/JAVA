@@ -1,5 +1,5 @@
 package semaine4;
-
+// petit test
 public class Exo1 {
 /* args est un argument, pour exectuer ce code je dois run mon code avec run configuration>arguments
  * et lui passer des argument comme 3 et 4, args[0] seras donc 3*/
