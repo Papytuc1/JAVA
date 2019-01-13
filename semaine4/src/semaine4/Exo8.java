@@ -9,7 +9,7 @@ public class Exo8 {
 		System.out.println("Saisir un chiffre");
 		int nombre = scanner.nextInt();
 		String detail = String.valueOf(nombre);
-		System.out.println("Voicis votre chiffre dÃ©composer");
+		System.out.println("Voicis votre chiffre décomposer");
 		for(int i = 0;i<detail.length();i++) {
 			System.out.println(detail.charAt(i));
 		}
