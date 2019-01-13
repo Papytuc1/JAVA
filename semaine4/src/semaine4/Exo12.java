@@ -11,7 +11,7 @@ public class Exo12 {
 			tab[i] = (int) (Math.random()*10);
 			somme += tab[i];	
 		}
-		System.out.println("Voici votre tableau "+Arrays.toString(tab));
+		System.out.println("Voici le tableau "+Arrays.toString(tab));
 		System.out.println("Et voici sa somme "+somme);
 	}
 
