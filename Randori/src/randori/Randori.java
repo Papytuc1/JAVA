@@ -55,6 +55,7 @@ public class Randori {
 		list.add(2);
 		list.add(3);
 		list2.add(2);
+		list2.add(1);
 		//System.out.println(list2);
 		
 		
