@@ -2,7 +2,10 @@ package semaine5;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+/*
+ * supprimer les espace apres le mot rentrée
+ * et empecher une case vide
+ */
 public class MasterMind {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -33,7 +36,7 @@ public class MasterMind {
 			break;
 			}
 		}
-		System.out.println(Arrays.toString(tableauCouleurRandom));
+		//System.out.println(Arrays.toString(tableauCouleurRandom));
 		while(!verif && countEssai < 12) {
 			countEssai++;
 			System.out.println("Saisissez 4 couleurs (Rouge, Bleu, Vert, Jaune)");
