@@ -20,7 +20,6 @@ public class MasterMindMieux {
 			tab[i] = saisie.substring(0,saisie.indexOf(" "));
 		}
 		else {
-			System.out.println("coucou2");
 			tab[i] = saisie;
 		}
 		
@@ -66,7 +65,7 @@ public class MasterMindMieux {
 		int count1 =0;
 		int count2 = 0;
 		CouleurRandom(tableauCouleurRandom);
-		//System.out.println(Arrays.toString(tableauCouleurRandom));
+		System.out.println(Arrays.toString(tableauCouleurRandom));
 		System.out.println("C'est parti vous avez 12 essais");
 		while(!verif && countEssai > 0) {		
 			if(countEssai == 12) {
@@ -98,7 +97,8 @@ public class MasterMindMieux {
 			for (int i = 0 ; i<tableauUtilisateurCopie.length; i++) {
 				for (int k = 0; k < tableauCouleurRandomCopie.length; k++) {
 					if(tableauUtilisateurCopie[i].equals(tableauCouleurRandomCopie[k]) && !tableauUtilisateurCopie[k].equals("-")) {
-						count2++;					
+						count2++;	
+						break;
 					}
 				}					  
 			}
@@ -111,7 +111,8 @@ public class MasterMindMieux {
 			}
 			else {
 				count1 = 0;
-				count2 = 0;
+				count2 = {
+0;
 			}
 		}
 		/* hors de la boucle je verifie la position de mon boolean pour savoir si le joueurs a win ou lose*/ 
@@ -119,7 +120,8 @@ public class MasterMindMieux {
 			System.out.println("vous etes le master mind");
 		}
 		else {
-			System.out.println("vous avez perdu ;)");
+			System.out.println("vous avez perdu ;) le tableau etais "
+		+Arrays.toString(tableauCouleurRandom));
 		}
 	}
 }
