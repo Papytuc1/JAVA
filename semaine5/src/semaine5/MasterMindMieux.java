@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MasterMindMieux {
 	/**
 	 * fonction qui permet de push les entrées sasie dans mon tableau
-	 * elle permet aussi de géré le cas ou un espace est ajouté
+	 * elle permet aussi de gerer le cas ou un espace est ajouté
 	 * @param tab
 	 * @param saisie
 	 * @return
@@ -111,8 +111,8 @@ public class MasterMindMieux {
 			}
 			else {
 				count1 = 0;
-				count2 = {
-0;
+				count2 = 0;
+
 			}
 		}
 		/* hors de la boucle je verifie la position de mon boolean pour savoir si le joueurs a win ou lose*/ 
