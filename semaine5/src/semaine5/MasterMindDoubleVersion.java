@@ -98,6 +98,7 @@ public class MasterMindDoubleVersion {
 					tableauUtilisateurCopie[i] ="-";
 					tableauCouleurRandomCopie[i] = "*";
 					tableauFacilitateurCopie[i]="2";
+					break;
 				}
 			}
 			/*  ici je parcours mes copies de tableau (donc apres modification) je n'ai donc plus que des valeur diff�rente 
@@ -106,13 +107,14 @@ public class MasterMindDoubleVersion {
 				for (int k = 0; k < tableauCouleurRandomCopie.length; k++) {
 					if(tableauUtilisateurCopie[i].equals(tableauCouleurRandomCopie[k])) {
 						count2++;
+						tableauCouleurRandomCopie[k] = "*";
 						tableauFacilitateurCopie[i]="1";
 						break;
 					}			
 				}					  
 			}
-			System.out.println(Arrays.toString(tableauUtilisateurCopie));
-			System.out.println(Arrays.toString(tableauCouleurRandomCopie));
+			//System.out.println(Arrays.toString(tableauUtilisateurCopie));
+			//System.out.println(Arrays.toString(tableauCouleurRandomCopie));
 			if(facile.equals("facile")) {
 			System.out.println("Vous avez saisie "+Arrays.toString(tableauUtilisateur)+"\n                 "
 					+ Arrays.toString(tableauFacilitateurCopie));
@@ -148,10 +150,7 @@ public class MasterMindDoubleVersion {
 	    	System.err.println("Veuillez recomencer votre saisie je ne l'ai pas comprise");
 	    	saisie =scanner.nextLine().toLowerCase();
 	    	System.out.println(saisie);
-	    }
-	    
+	    }	    
 	    	version(saisie);
-
-
 }
 }
