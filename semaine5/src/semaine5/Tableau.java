@@ -8,9 +8,14 @@ public class Tableau {
 	 * @args tab
 	 */
 	public static void affichage(int[] tab) {
+		System.out.print("[");
 		for (int i = 0 ; i<tab.length; i++) {
-			System.out.println(tab[i]);
+			System.out.print(tab[i]);
+			if(i != tab.length -1) {
+			System.out.print(", ");
+			}
 		}
+		System.out.print("]");
 	}
 	/*
 	 * fonction qui permet de randomiser un nombre et le push dans un tableau
