@@ -28,13 +28,17 @@ import javax.swing.JProgressBar;
 public class salut extends JFrame {
 
 	private JPanel contentPane;
-	private String[] tableau = {"-","-","-","-"}; 
-	private String facile = "";
-
+	private String facile ="";
+	static String[] tabUser = {"-","-","-","-"};
+	static int i = 0;
+	static String[] tableauFacilitateur = {"0","0","0","0"};
+	static String[] tabRandomStrings = new String[4];
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		Fonction.CouleurRandom(tabRandomStrings);
+		System.out.println(Arrays.toString(tabRandomStrings));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -63,6 +67,7 @@ public class salut extends JFrame {
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				facile ="facile";
 			}
 		});
 		SpringLayout sl_contentPane = new SpringLayout();
@@ -78,16 +83,20 @@ public class salut extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 117, SpringLayout.NORTH, contentPane);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				facile = "difficile";
 			}
 		});
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnRouge = new JButton("Orange");
+		JButton btnRouge = new JButton("Rouge");
 		btnRouge.setBackground(Color.WHITE);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnRouge, 139, SpringLayout.SOUTH, btnNewButton);
 		btnRouge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				tableau[0]="rouge";				
+				if(i !=4 ) {
+				tabUser[i]="rouge";
+				i++;
+				}
 			}
 		});
 		contentPane.add(btnRouge);
@@ -95,7 +104,7 @@ public class salut extends JFrame {
 		JButton btnAffichertest = new JButton("AfficherTest");
 		btnAffichertest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println(Arrays.toString(tableau));
+				System.out.println(Arrays.toString(tabUser));
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAffichertest, 10, SpringLayout.NORTH, contentPane);
@@ -105,6 +114,9 @@ public class salut extends JFrame {
 		JButton btnValiderLaSasie = new JButton("Valider la Sasie");
 		btnValiderLaSasie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Fonction.utilisateur(tabUser, tabRandomStrings, tableauFacilitateur);
+				Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur);
+				i =0;
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnValiderLaSasie, -10, SpringLayout.SOUTH, contentPane);
@@ -118,7 +130,10 @@ public class salut extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnBleu, 139, SpringLayout.SOUTH, btnNewButton);
 		btnBleu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				tableau[1]="bleu";
+				if(i !=4 ) {
+					tabUser[i]="bleu";
+					i++;
+					}
 			}
 		});
 		contentPane.add(btnBleu);
@@ -128,18 +143,24 @@ public class salut extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnJaune, 108, SpringLayout.EAST, btnBleu);
 		btnJaune.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				tableau[2]="jaune";
+				if(i !=4 ) {
+					tabUser[i]="jaune";
+					i++;
+					}
 			}
 		});
 		contentPane.add(btnJaune);
 		
-		JButton btnVert = new JButton("Violet");
+		JButton btnVert = new JButton("Vert");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnVert, 0, SpringLayout.NORTH, btnRouge);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnVert, 75, SpringLayout.EAST, btnJaune);
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnVert, -143, SpringLayout.EAST, contentPane);
 		btnVert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				tableau[3] = "vert";
+				if(i !=4 ) {
+					tabUser[i]="vert";
+					i++;
+					}
 			}
 		});
 		contentPane.add(btnVert);
