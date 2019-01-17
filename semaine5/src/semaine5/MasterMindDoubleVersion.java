@@ -66,7 +66,7 @@ public class MasterMindDoubleVersion {
 		int count1 =0;
 		int count2 = 0;
 		CouleurRandom(tableauCouleurRandom);
-		System.out.println(Arrays.toString(tableauCouleurRandom));
+		//System.out.println(Arrays.toString(tableauCouleurRandom));
 		if(facile.equals("facile")) {
 		System.out.println("C'est parti vous avez 12 essais, saisissez 4 couleurs (Rouge, Bleu, Vert, Jaune)\n"
 				+ "Le chiffre 0 veux dire que votre couleur n'est pas dans le tableau,\nle chiffre 1 signifie que votre "
@@ -98,7 +98,6 @@ public class MasterMindDoubleVersion {
 					tableauUtilisateurCopie[i] ="-";
 					tableauCouleurRandomCopie[i] = "*";
 					tableauFacilitateurCopie[i]="2";
-					break;
 				}
 			}
 			/*  ici je parcours mes copies de tableau (donc apres modification) je n'ai donc plus que des valeur diff�rente 
