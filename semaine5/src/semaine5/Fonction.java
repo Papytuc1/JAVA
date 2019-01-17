@@ -38,13 +38,15 @@ public class Fonction {
 		else {
 			System.out.println("Vous avez saisie "+Arrays.toString(tableauUtilisateur));
 		}
+		if(countEssai > 0 && count1 != 4) {
 		System.out.println("Vous avez "+ count1 +" couleurs bien place");
 		System.out.println("Vous avez "+ count2 +" couleurs presente mais mal place");
 		System.out.println("Il vous reste "+countEssai+" essais");
+		}
 		if(count1==4) {
 			System.out.println("Bravo vous etes le master Mind");
 		}
-		else if (countEssai == 0) {
+		if (countEssai == 0) {
 			System.out.println("Vous avez perdu la bonne reponse etais "+Arrays.toString(tableauCouleurRandomCopie));
 		}
 		count1 = 0;
@@ -70,7 +72,10 @@ public class Fonction {
 					tableauCouleurRandomCopie[k] = "*";
 					tableauFacilitateur[i]="1";
 					break;
-				}			
+				}
+				else if(!tableauUtilisateurCopie[i].equals(tableauCouleurRandomCopie[k]) || tableauUtilisateurCopie[i].equals("-")) {
+					tableauFacilitateur[i]="*";
+				}
 			}					  
 		}
 		return tableauUtilisateur;

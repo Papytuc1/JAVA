@@ -31,7 +31,8 @@ public class salut extends JFrame {
 	private String facile ="";
 	static String[] tabUser = {"-","-","-","-"};
 	static int i = 0;
-	static String[] tableauFacilitateur = {"0","0","0","0"};
+	static int count = 12;
+	static String[] tableauFacilitateur = {"-","-","-","-"};
 	static String[] tabRandomStrings = new String[4];
 	/**
 	 * Launch the application.
@@ -111,17 +112,7 @@ public class salut extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnAffichertest, 10, SpringLayout.WEST, contentPane);
 		contentPane.add(btnAffichertest);
 		
-		JButton btnValiderLaSasie = new JButton("Valider la Sasie");
-		btnValiderLaSasie.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Fonction.utilisateur(tabUser, tabRandomStrings, tableauFacilitateur);
-				Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur);
-				i =0;
-			}
-		});
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnValiderLaSasie, -10, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnValiderLaSasie, -10, SpringLayout.EAST, contentPane);
-		contentPane.add(btnValiderLaSasie);
+		
 		
 		JButton btnBleu = new JButton("Bleu");
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnRouge, -87, SpringLayout.WEST, btnBleu);
@@ -172,6 +163,50 @@ public class salut extends JFrame {
 				btnNewButton_2.setBackground(Color.green);
 			}
 		});
+		
+		JButton btnValiderLaSasie = new JButton("Valider la Sasie");
+		btnValiderLaSasie.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			
+				count--;
+				Fonction.utilisateur(tabUser, tabRandomStrings, tableauFacilitateur);
+				Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur);
+				System.out.println(Arrays.toString(tableauFacilitateur));
+				if(tableauFacilitateur[0].equals("1")) {
+					btnRouge.setBackground(Color.orange);
+				}
+				else if(tableauFacilitateur[0].equals("2")) {
+					btnRouge.setBackground(Color.green);
+				}
+				
+				if(tableauFacilitateur[1].equals("1")) {
+					btnBleu.setBackground(Color.orange);
+				}
+				else if(tableauFacilitateur[1].equals("2")) {
+					btnBleu.setBackground(Color.green);
+				}
+				if(tableauFacilitateur[2].equals("1")) {
+					btnJaune.setBackground(Color.orange);
+				}
+				else if(tableauFacilitateur[2].equals("2")) {
+					btnJaune.setBackground(Color.green);
+				}
+				if(tableauFacilitateur[3].equals("1")) {
+					btnVert.setBackground(Color.orange);
+				}
+				else if(tableauFacilitateur[3].equals("2")) {
+					btnVert.setBackground(Color.green);
+				}
+				i =0;
+				if(count == 0) {
+					btnValiderLaSasie.setEnabled(false);
+				}
+			}
+		});
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnValiderLaSasie, -10, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnValiderLaSasie, -10, SpringLayout.EAST, contentPane);
+		contentPane.add(btnValiderLaSasie);
+		
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_2, 20, SpringLayout.SOUTH, btnRouge);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_2, 101, SpringLayout.WEST, contentPane);
 		contentPane.add(btnNewButton_2);
