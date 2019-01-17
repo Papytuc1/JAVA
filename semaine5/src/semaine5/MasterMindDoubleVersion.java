@@ -66,11 +66,11 @@ public class MasterMindDoubleVersion {
 		int count1 =0;
 		int count2 = 0;
 		CouleurRandom(tableauCouleurRandom);
-		//System.out.println(Arrays.toString(tableauCouleurRandom));
+		System.out.println(Arrays.toString(tableauCouleurRandom));
 		if(facile.equals("facile")) {
 		System.out.println("C'est parti vous avez 12 essais, saisissez 4 couleurs (Rouge, Bleu, Vert, Jaune)\n"
 				+ "Le chiffre 0 veux dire que votre couleur n'est pas dans le tableau,\nle chiffre 1 signifie que votre "
-				+ "couleur est présente mais mal placée,\nle chiffre 2 que votre couleur est présente et bien placée");
+				+ "couleur est presente mais mal placee,\nle chiffre 2 que votre couleur est presente et bien placee");
 		}
 		else {
 			System.out.println("C'est parti vous avez 12 essais Saisissez 4 couleurs (Rouge, Bleu, Vert, Jaune)");

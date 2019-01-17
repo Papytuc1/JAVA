@@ -62,7 +62,7 @@ public class testt extends JFrame {
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GraficMasterMind.traitement("facile", tableau);
+
 				setEnabled(false);
 			}
 		});
@@ -79,7 +79,7 @@ public class testt extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 117, SpringLayout.NORTH, contentPane);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GraficMasterMind.traitement("Difficile", tableau);
+
 			}
 		});
 		contentPane.add(btnNewButton_1);
@@ -107,8 +107,7 @@ public class testt extends JFrame {
 		JButton btnValiderLaSasie = new JButton("Valider la Sasie");
 		btnValiderLaSasie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GraficMasterMind.traitement("",tableau);
-				setEnabled(false) ;
+
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnValiderLaSasie, -10, SpringLayout.SOUTH, contentPane);
