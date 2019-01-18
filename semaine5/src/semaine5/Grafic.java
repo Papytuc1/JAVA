@@ -45,13 +45,13 @@ public class Grafic extends JFrame {
 	}
 	public static JLabel Paradise() {
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/simoccjavmonp06/Bureau/ezgif-5-f21e6dbeef1a.gif"));
+		lblNewLabel.setIcon(new ImageIcon("/home/simoccjavmonp06/eclipse-workspaceEE/Java/semaine5/ezgif-5-f21e6dbeef1a.gif"));
 		contentPane.add(lblNewLabel);
 		return lblNewLabel;
 	}
 	public static JLabel Hell() {
 		JLabel lblHell = new JLabel("Hell");
-		lblHell.setIcon(new ImageIcon("/home/simoccjavmonp06/Bureau/Hell.gif"));
+		lblHell.setIcon(new ImageIcon("/home/simoccjavmonp06/eclipse-workspaceEE/Java/semaine5/Hell.gif"));
 		contentPane.add(lblHell);
 		return lblHell;
 		
