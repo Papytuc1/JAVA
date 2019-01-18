@@ -2,7 +2,7 @@ package semaine5;
 
 import java.util.Arrays;
 
-public class Fonction {
+public class GraficFonction {
 	static int count1 = 0;
 	static int count2 = 0;
 	static int countEssai = 12;
@@ -40,19 +40,18 @@ public class Fonction {
 		if(facile.equals("facile")) {
 			return "Vous avez saisie "+Arrays.toString(tableauUtilisateur)+"\n                 "
 					+ Arrays.toString(tableauFacilitateur);
+		}		
+		else if(countEssai > 0 && count1 != 4) {
+		return "Vous avez saisie "+Arrays.toString(tableauUtilisateur)+"\nVous avez "+ count1 +" couleurs bien place\n"+
+		"Vous avez "+ count2 +" couleurs presente mais mal placee\n"+
+		"Il vous reste "+countEssai+" essais";
 		}
 		if(count1==4) {
 			return "Bravo vous etes le master Mind";
 		}
 		else if (countEssai == 0) {
 			return "Vous avez perdu la bonne reponse etais \n"+Arrays.toString(tableauCouleurRandomCopie);
-		}	
-		else if(countEssai > 0 && count1 != 4) {
-		return "Vous avez saisie "+Arrays.toString(tableauUtilisateur)+"\nVous avez "+ count1 +" couleurs bien place\n"+
-		"Vous avez "+ count2 +" couleurs presente mais mal placee\n"+
-		"Il vous reste "+countEssai+" essais";
-		}
-			
+		}		
 		return "error";
 	}
 	public static String[]	utilisateur (String[] tableauUtilisateur,String[]tableauCouleurRandom,String[]tableauFacilitateur) {

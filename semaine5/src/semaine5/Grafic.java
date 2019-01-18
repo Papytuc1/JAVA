@@ -35,17 +35,22 @@ import javax.swing.JLabel;
 import javax.swing.UIManager;
 import java.awt.Font;
 
-public class salut extends JFrame {
+public class Grafic extends JFrame {
+	public static JLabel dab() {
+		JLabel lblDab = new JLabel("Dab");
+		lblDab.setIcon(new ImageIcon("/home/simoccjavmonp06/Bureau/dab.gif"));
+		
+		contentPane.add(lblDab);
+		return lblDab;
+	}
 	public static JLabel Paradise() {
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("/home/simoccjavmonp06/Bureau/ezgif-5-f21e6dbeef1a.gif"));
-		//sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel);
 		return lblNewLabel;
 	}
 	public static JLabel Hell() {
 		JLabel lblHell = new JLabel("Hell");
-		lblHell.setVisible(true);
 		lblHell.setIcon(new ImageIcon("/home/simoccjavmonp06/Bureau/Hell.gif"));
 		contentPane.add(lblHell);
 		return lblHell;
@@ -64,12 +69,12 @@ public class salut extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		Fonction.CouleurRandom(tabRandomStrings);
+		GraficFonction.CouleurRandom(tabRandomStrings);
 		System.out.println(Arrays.toString(tabRandomStrings));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					salut frame = new salut();
+					Grafic frame = new Grafic();
 					frame.setVisible(true);
 					frame.setResizable(false);
 				} catch (Exception e) {
@@ -82,7 +87,7 @@ public class salut extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public salut() {
+	public Grafic() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 869, 563);
 		contentPane = new JPanel();
@@ -194,15 +199,19 @@ public class salut extends JFrame {
 		btnValiderLaSasie.setVisible(false);
 		btnValiderLaSasie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Fonction.count1=0;
-				Fonction.count2 =0;
+				GraficFonction.count1=0;
+				GraficFonction.count2 =0;
 				count--;
-				Fonction.utilisateur(tabUser, tabRandomStrings, tableauFacilitateur);
+				GraficFonction.utilisateur(tabUser, tabRandomStrings, tableauFacilitateur);
 				//Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur);
-				txtrFacile.setText(Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur));
+				txtrFacile.setText(GraficFonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur));
 				i =0;
 				if(count == 0) {
 					btnValiderLaSasie.setEnabled(false);
+				}
+				else if(tableauFacilitateur[0].equals("2") && tableauFacilitateur[1].equals("2") && tableauFacilitateur[2].equals("2") && tableauFacilitateur[3].equals("2")) {
+					JLabel dab = new JLabel();
+					contentPane.setBackground(Color.red);
 				}
 			}
 		});
@@ -211,9 +220,6 @@ public class salut extends JFrame {
 		JButton btnFacile = new JButton("Facile");
 		btnFacile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Hell().setVisible(false);
-				Paradise().setVisible(true);;
-				facile ="";
 				facile ="facile";
 			}
 		});
@@ -225,10 +231,7 @@ public class salut extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnFacile, -16, SpringLayout.WEST, btnDifficile);
 		btnDifficile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
-				Paradise().setVisible(false);
-				Hell().setVisible(true);;
-				facile="";
-				facile ="difficile";		
+				facile ="difficile";
 			}
 		});
 		contentPane.add(btnDifficile);
@@ -239,6 +242,12 @@ public class salut extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, -18, SpringLayout.NORTH, txtrFacile);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(facile.equals("facile")) {
+					Paradise();
+				}
+				else {
+					Hell();
+				}
 				btnRouge.setVisible(true);
 				btnBleu.setVisible(true);
 				btnJaune.setVisible(true);
@@ -254,7 +263,7 @@ public class salut extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton);
+		
+	
 	}
-	
-	
 }
