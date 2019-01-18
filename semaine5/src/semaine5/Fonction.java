@@ -6,6 +6,11 @@ public class Fonction {
 	static int count1 = 0;
 	static int count2 = 0;
 	static int countEssai = 12;
+	public static int compteur (int count1,int count2) {
+		count1=0;
+		count2=0;
+		return count1;
+	}
 	public static String[] CouleurRandom(String[] tab) {
 		for (int i = 0 ; i<tab.length;i++) {
 			int random = (int) (Math.random()*4);
@@ -29,28 +34,26 @@ public class Fonction {
 		}
 		return tab;
 	}
-	public static void affichage(String facile ,String[] tableauUtilisateur,String[]tableauCouleurRandomCopie,String[]tableauFacilitateur) {
+	public static String affichage(String facile ,String[] tableauUtilisateur,String[]tableauCouleurRandomCopie,String[]tableauFacilitateur) {
 		countEssai--;
+		
 		if(facile.equals("facile")) {
-			System.out.println("Vous avez saisie "+Arrays.toString(tableauUtilisateur)+"\n                 "
-					+ Arrays.toString(tableauFacilitateur));
-		}
-		else {
-			System.out.println("Vous avez saisie "+Arrays.toString(tableauUtilisateur));
-		}
-		if(countEssai > 0 && count1 != 4) {
-		System.out.println("Vous avez "+ count1 +" couleurs bien place");
-		System.out.println("Vous avez "+ count2 +" couleurs presente mais mal place");
-		System.out.println("Il vous reste "+countEssai+" essais");
+			return "Vous avez saisie "+Arrays.toString(tableauUtilisateur)+"\n                 "
+					+ Arrays.toString(tableauFacilitateur);
 		}
 		if(count1==4) {
-			System.out.println("Bravo vous etes le master Mind");
+			return "Bravo vous etes le master Mind";
 		}
-		if (countEssai == 0) {
-			System.out.println("Vous avez perdu la bonne reponse etais "+Arrays.toString(tableauCouleurRandomCopie));
+		else if (countEssai == 0) {
+			return "Vous avez perdu la bonne reponse etais \n"+Arrays.toString(tableauCouleurRandomCopie);
+		}	
+		else if(countEssai > 0 && count1 != 4) {
+		return "Vous avez saisie "+Arrays.toString(tableauUtilisateur)+"\nVous avez "+ count1 +" couleurs bien place\n"+
+		"Vous avez "+ count2 +" couleurs presente mais mal placee\n"+
+		"Il vous reste "+countEssai+" essais";
 		}
-		count1 = 0;
-		count2 = 0;
+			
+		return "error";
 	}
 	public static String[]	utilisateur (String[] tableauUtilisateur,String[]tableauCouleurRandom,String[]tableauFacilitateur) {
 		String[] tableauCouleurRandomCopie = new String[4];
@@ -73,15 +76,12 @@ public class Fonction {
 					tableauFacilitateur[i]="1";
 					break;
 				}
-				else if(!tableauUtilisateurCopie[i].equals(tableauCouleurRandomCopie[k]) || tableauUtilisateurCopie[i].equals("-")) {
-					tableauFacilitateur[i]="*";
-				}
 			}					  
 		}
 		return tableauUtilisateur;
 	}
 
-	public static void main (String[]args) {
+	/*public static void main (String[]args) {
 		String[] tabUser = {"rouge","vert","vert","jaune"};
 		String[] tabRandomStrings = new String[4];
 		String[] tableauFacilitateur = {"0","0","0","0"};
@@ -90,6 +90,6 @@ public class Fonction {
 		utilisateur(tabUser,tabRandomStrings,tableauFacilitateur);
 		affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur);
 		
-	}
+	}*/
 }
 

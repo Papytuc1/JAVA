@@ -11,27 +11,53 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
+
 import net.miginfocom.swing.MigLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Panel;
+
 import javax.swing.SpringLayout;
 import java.awt.Dimension;
 import javax.swing.JTextPane;
 import javax.swing.JCheckBox;
 import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import javax.swing.UIManager;
+import java.awt.Font;
 
 public class salut extends JFrame {
+	public static JLabel Paradise() {
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("/home/simoccjavmonp06/Bureau/ezgif-5-f21e6dbeef1a.gif"));
+		//sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 0, SpringLayout.WEST, contentPane);
+		contentPane.add(lblNewLabel);
+		return lblNewLabel;
+	}
+	public static JLabel Hell() {
+		JLabel lblHell = new JLabel("Hell");
+		lblHell.setVisible(true);
+		lblHell.setIcon(new ImageIcon("/home/simoccjavmonp06/Bureau/Hell.gif"));
+		contentPane.add(lblHell);
+		return lblHell;
+		
+	}
 
-	private JPanel contentPane;
+	private static JPanel contentPane;
 	private String facile ="";
 	static String[] tabUser = {"-","-","-","-"};
 	static int i = 0;
 	static int count = 12;
+	
 	static String[] tableauFacilitateur = {"-","-","-","-"};
 	static String[] tabRandomStrings = new String[4];
 	/**
@@ -45,6 +71,7 @@ public class salut extends JFrame {
 				try {
 					salut frame = new salut();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -60,38 +87,16 @@ public class salut extends JFrame {
 		setBounds(100, 100, 869, 563);
 		contentPane = new JPanel();
 		contentPane.setMinimumSize(new Dimension(100, 100));
-		contentPane.setBackground(new Color(0, 0, 255));
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		JButton btnNewButton = new JButton("Facile");
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				facile ="facile";
-			}
-		});
 		SpringLayout sl_contentPane = new SpringLayout();
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 92, SpringLayout.WEST, contentPane);
 		contentPane.setLayout(sl_contentPane);
-		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Difficile");
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 485, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_1, -66, SpringLayout.EAST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 0, SpringLayout.NORTH, btnNewButton_1);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, -68, SpringLayout.WEST, btnNewButton_1);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 117, SpringLayout.NORTH, contentPane);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				facile = "difficile";
-			}
-		});
-		contentPane.add(btnNewButton_1);
-		
-		JButton btnRouge = new JButton("Rouge");
-		btnRouge.setBackground(Color.WHITE);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnRouge, 139, SpringLayout.SOUTH, btnNewButton);
+		JButton btnRouge = new JButton();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnRouge, 281, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnRouge, 365, SpringLayout.NORTH, contentPane);
+		btnRouge.setBackground(Color.RED);
+		btnRouge.setVisible(false);
 		btnRouge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(i !=4 ) {
@@ -114,11 +119,13 @@ public class salut extends JFrame {
 		
 		
 		
-		JButton btnBleu = new JButton("Bleu");
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnRouge, -87, SpringLayout.WEST, btnBleu);
+		JButton btnBleu = new JButton();
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnRouge, -54, SpringLayout.WEST, btnBleu);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnBleu, -158, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnBleu, -471, SpringLayout.EAST, contentPane);
+		btnBleu.setBackground(Color.BLUE);
+		btnBleu.setVisible(false);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnBleu, -571, SpringLayout.EAST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnBleu, -494, SpringLayout.EAST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnBleu, 139, SpringLayout.SOUTH, btnNewButton);
 		btnBleu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(i !=4 ) {
@@ -129,9 +136,11 @@ public class salut extends JFrame {
 		});
 		contentPane.add(btnBleu);
 		
-		JButton btnJaune = new JButton("Jaune");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnJaune, 0, SpringLayout.NORTH, btnRouge);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnJaune, 108, SpringLayout.EAST, btnBleu);
+		JButton btnJaune = new JButton();
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnJaune, 62, SpringLayout.EAST, btnBleu);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnJaune, -158, SpringLayout.SOUTH, contentPane);
+		btnJaune.setBackground(Color.YELLOW);
+		btnJaune.setVisible(false);
 		btnJaune.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(i !=4 ) {
@@ -142,10 +151,13 @@ public class salut extends JFrame {
 		});
 		contentPane.add(btnJaune);
 		
-		JButton btnVert = new JButton("Vert");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnVert, 0, SpringLayout.NORTH, btnRouge);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnVert, 75, SpringLayout.EAST, btnJaune);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnVert, -143, SpringLayout.EAST, contentPane);
+		JButton btnVert = new JButton();
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnJaune, -70, SpringLayout.WEST, btnVert);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnVert, -158, SpringLayout.SOUTH, contentPane);
+		btnVert.setBackground(new Color(0, 128, 0));
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnVert, 610, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnVert, 695, SpringLayout.WEST, contentPane);
+		btnVert.setVisible(false);
 		btnVert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(i !=4 ) {
@@ -156,91 +168,93 @@ public class salut extends JFrame {
 		});
 		contentPane.add(btnVert);
 		
-		JButton btnNewButton_2 = new JButton("      ");
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_2, 185, SpringLayout.WEST, contentPane);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				btnNewButton_2.setBackground(Color.green);
-			}
-		});
+		JTextArea txtrFacile = new JTextArea();
+		txtrFacile.setForeground(new Color(0, 0, 0));
+		txtrFacile.setBackground(new Color(128, 128, 0));
+		txtrFacile.setFont(new Font("Century Schoolbook L", Font.PLAIN, 22));
+		txtrFacile.setVisible(false);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, txtrFacile, 141, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, txtrFacile, -18, SpringLayout.NORTH, btnRouge);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnRouge, 0, SpringLayout.WEST, txtrFacile);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnVert, 18, SpringLayout.SOUTH, txtrFacile);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnJaune, 18, SpringLayout.SOUTH, txtrFacile);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnBleu, 18, SpringLayout.SOUTH, txtrFacile);
+		txtrFacile.setVisible(false);
+		sl_contentPane.putConstraint(SpringLayout.WEST, txtrFacile, 139, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, txtrFacile, 709, SpringLayout.WEST, contentPane);
+		txtrFacile.setText("C'est parti vous avez 12 essais,\n saisissez 4 couleurs (Rouge, Bleu, Vert, Jaune)");
+		contentPane.add(txtrFacile);
+		
 		
 		JButton btnValiderLaSasie = new JButton("Valider la Sasie");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnValiderLaSasie, 29, SpringLayout.SOUTH, btnBleu);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnValiderLaSasie, 240, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnValiderLaSasie, 119, SpringLayout.SOUTH, btnBleu);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnValiderLaSasie, 557, SpringLayout.WEST, contentPane);
+		btnValiderLaSasie.setVisible(false);
 		btnValiderLaSasie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
+				Fonction.count1=0;
+				Fonction.count2 =0;
 				count--;
 				Fonction.utilisateur(tabUser, tabRandomStrings, tableauFacilitateur);
-				Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur);
-				System.out.println(Arrays.toString(tableauFacilitateur));
-				if(tableauFacilitateur[0].equals("1")) {
-					btnRouge.setBackground(Color.orange);
-				}
-				else if(tableauFacilitateur[0].equals("2")) {
-					btnRouge.setBackground(Color.green);
-				}
-				
-				if(tableauFacilitateur[1].equals("1")) {
-					btnBleu.setBackground(Color.orange);
-				}
-				else if(tableauFacilitateur[1].equals("2")) {
-					btnBleu.setBackground(Color.green);
-				}
-				if(tableauFacilitateur[2].equals("1")) {
-					btnJaune.setBackground(Color.orange);
-				}
-				else if(tableauFacilitateur[2].equals("2")) {
-					btnJaune.setBackground(Color.green);
-				}
-				if(tableauFacilitateur[3].equals("1")) {
-					btnVert.setBackground(Color.orange);
-				}
-				else if(tableauFacilitateur[3].equals("2")) {
-					btnVert.setBackground(Color.green);
-				}
+				//Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur);
+				txtrFacile.setText(Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur));
 				i =0;
 				if(count == 0) {
 					btnValiderLaSasie.setEnabled(false);
 				}
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnValiderLaSasie, -10, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnValiderLaSasie, -10, SpringLayout.EAST, contentPane);
 		contentPane.add(btnValiderLaSasie);
 		
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_2, 20, SpringLayout.SOUTH, btnRouge);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_2, 101, SpringLayout.WEST, contentPane);
-		contentPane.add(btnNewButton_2);
-		
-		JButton button = new JButton("          ");
-		button.addActionListener(new ActionListener() {
+		JButton btnFacile = new JButton("Facile");
+		btnFacile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				button.setBackground(Color.green);
+				Hell().setVisible(false);
+				Paradise().setVisible(true);;
+				facile ="";
+				facile ="facile";
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, button, 25, SpringLayout.SOUTH, btnBleu);
-		sl_contentPane.putConstraint(SpringLayout.WEST, button, 93, SpringLayout.EAST, btnNewButton_2);
-		sl_contentPane.putConstraint(SpringLayout.EAST, button, 189, SpringLayout.EAST, btnNewButton_2);
-		contentPane.add(button);
+		contentPane.add(btnFacile);
 		
-		JButton button_1 = new JButton("          ");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				button_1.setBackground(Color.green);
+		JButton btnDifficile = new JButton("Difficile");
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnDifficile, 405, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnFacile, 0, SpringLayout.NORTH, btnDifficile);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnFacile, -16, SpringLayout.WEST, btnDifficile);
+		btnDifficile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {	
+				Paradise().setVisible(false);
+				Hell().setVisible(true);;
+				facile="";
+				facile ="difficile";		
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, button_1, 0, SpringLayout.NORTH, button);
-		sl_contentPane.putConstraint(SpringLayout.WEST, button_1, 0, SpringLayout.WEST, btnJaune);
-		contentPane.add(button_1);
+		contentPane.add(btnDifficile);
 		
-		JButton button_2 = new JButton("            ");
-		button_2.addActionListener(new ActionListener() {
+		JButton btnNewButton = new JButton("OK");
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnDifficile, -6, SpringLayout.NORTH, btnNewButton);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 365, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, -18, SpringLayout.NORTH, txtrFacile);
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				button_2.setBackground(Color.green);
+				btnRouge.setVisible(true);
+				btnBleu.setVisible(true);
+				btnJaune.setVisible(true);
+				btnVert.setVisible(true);
+				txtrFacile.setVisible(true);
+				txtrFacile.setVisible(true);
+				btnValiderLaSasie.setVisible(true);
+				btnFacile.setVisible(false);
+				btnDifficile.setVisible(false);
+				btnNewButton.setVisible(false);
+				
+				
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, button_2, 0, SpringLayout.NORTH, btnNewButton_2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, button_2, 0, SpringLayout.WEST, btnVert);
-		sl_contentPane.putConstraint(SpringLayout.EAST, button_2, -5, SpringLayout.EAST, btnVert);
-		contentPane.add(button_2);
+		contentPane.add(btnNewButton);
 	}
+	
+	
 }
