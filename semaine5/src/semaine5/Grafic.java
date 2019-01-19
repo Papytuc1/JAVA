@@ -48,13 +48,13 @@ public class Grafic extends JFrame {
 	public static JDialog lose() {
 		JDialog dialog = new JDialog();
 		dialog.setUndecorated(true);
-		String image = new File("5m5h.gif").getAbsolutePath();
+		String image = new File("lose.gif").getAbsolutePath();
+		System.out.println(image);
 		JLabel lose = new JLabel( new ImageIcon(image) );
 		dialog.getContentPane().add( lose );
 		dialog.pack();
 		dialog.setLocationRelativeTo(null);
 		dialog.setVisible(true);
-		System.out.println(dialog);
 		return dialog;
 	}
 	public static JDialog winner() {
@@ -264,7 +264,7 @@ public class Grafic extends JFrame {
 					btnJaune.setVisible(false);
 					btnVert.setVisible(false);
 					txtrFacile.setVisible(false);
-					btnValiderLaSasie.setEnabled(false);
+					btnValiderLaSasie.setVisible(false);
 				}
 				else if(tableauFacilitateur[0].equals("2") && tableauFacilitateur[1].equals("2") && tableauFacilitateur[2].equals("2") && tableauFacilitateur[3].equals("2")) {
 					winner();
