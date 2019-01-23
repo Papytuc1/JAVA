@@ -81,7 +81,7 @@ public class Grafic extends JFrame {
 	static int i = 0;
 	static int count = 12;
 	
-	static String[] tableauFacilitateur = {"-","-","-","-"};
+	 
 	static String[] tabRandomStrings = new String[4];
 	/**
 	 * Launch the application.
@@ -245,6 +245,7 @@ public class Grafic extends JFrame {
 		btnValiderLaSasie.setVisible(false);
 		btnValiderLaSasie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String[] tableauFacilitateur = {"-","-","-","-"};
 				GraficFonction.count1=0;
 				GraficFonction.count2 =0;
 				count--;
