@@ -20,7 +20,7 @@ public class Exo4Bis {
 		while(verif){
 			email = scanner.nextLine();
 			if(email.contains("@") && email.substring(email.indexOf("@")).contains(".")) {
-				emailInconnue.add(email.substring(email.indexOf("@")+1,email.indexOf(".")));
+				emailInconnue.add(email.substring(email.indexOf("@")+1,email.lastIndexOf(".")));
 				System.out.println("Voulez vous continuer oui/non ?");
 				reponse = scanner.nextLine();
 				if(reponse.equals("non")) {
@@ -48,7 +48,7 @@ public class Exo4Bis {
 				count = 1;
 			}
 		}
-		System.out.println("vous avez "+count+" "+comparateur.substring(email.indexOf("@")));
+		System.out.println("vous avez "+count+" "+comparateur);
 
 	}
 }

@@ -1,7 +1,7 @@
 package semaine4;
 
 import java.util.Scanner;
-/* au carrée = au nb*nb */
+/* au carrï¿½e = au nb*nb */
 
 public class Exo14 {
 
@@ -13,7 +13,7 @@ public class Exo14 {
 		
 		for (int i = 0 ; i<saisie ;i++) {
 			tableau[i]= nbImpair*nbImpair;
-			System.out.println(nbImpair+" a pour carré "+ tableau[i] );
+			System.out.println(nbImpair+" a pour carre "+ tableau[i] );
 			nbImpair += 2;
 			
 		}

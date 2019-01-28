@@ -14,7 +14,7 @@ public class Exo5 {
 			}
 			//int test = tab[0]%2;
 			//System.out.println(test+"une tes"+tab[0]);
-			for(int x =0; x<tab.length;x++) {
+			for(int i =0; i<tab.length;i++) {
 				if((tab[0]%2) ==0 && (tab[1]%2)==0 && (tab[2]%2)==1) {
 					stop = false;// si j'entre dans la condition je stop ma boucle
 				}
