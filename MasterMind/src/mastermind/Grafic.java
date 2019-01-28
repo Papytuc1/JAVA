@@ -1,8 +1,8 @@
+package mastermind;
+
+//salut
 
 
-
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,40 +11,23 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.net.URL;
 import java.util.Arrays;
 import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
 import java.awt.Color;
-import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Image;
-
-//import net.miginfocom.swing.MigLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Panel;
-
 import javax.swing.SpringLayout;
 import java.awt.Dimension;
-import javax.swing.JTextPane;
-import javax.swing.JCheckBox;
 import javax.swing.JDialog;
-import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import java.awt.Font;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
 import java.awt.Cursor;
 
 public class Grafic extends JFrame {
+	/*
+	 * fonction Jdialog qui affiche une image en cas de lose
+	 */
 	public static JDialog lose() {
 		JDialog dialog = new JDialog();
 		dialog.setUndecorated(true);
@@ -56,6 +39,9 @@ public class Grafic extends JFrame {
 		dialog.setVisible(true);
 		return dialog;
 	}
+	/*
+	 * fonction JDialog qui affiche une image en cas de win
+	 */
 	public static JDialog winner() {
 		JDialog dialog = new JDialog();
 		dialog.setUndecorated(true);
@@ -67,13 +53,19 @@ public class Grafic extends JFrame {
 		dialog.setVisible(true);
 		return dialog;
 	}
+	/*
+	 * fonction qui affiche un background anim� en cas de la selection facile
+	 */
 	public static JLabel Paradise() {
 		JLabel lblNewLabel = new JLabel("New label");
-		String image = new File("ezgif-5-f21e6dbeef1a.gif").getAbsolutePath();
+		String image = new File("Paradise.gif").getAbsolutePath();
 		lblNewLabel.setIcon(new ImageIcon(image));
 		contentPane.add(lblNewLabel);
 		return lblNewLabel;
 	}
+	/*
+	 * fonction qui affiche un background anim� en cas de la selection difficile
+	 */
 	public static JLabel Hell() {
 		JLabel lblHell = new JLabel("Hell");
 		String image = new File("Hell.gif").getAbsolutePath();
@@ -89,14 +81,14 @@ public class Grafic extends JFrame {
 	static int i = 0;
 	static int count = 12;
 	
-	static String[] tableauFacilitateur = {"-","-","-","-"};
+	 
 	static String[] tabRandomStrings = new String[4];
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		GraficFonction.CouleurRandom(tabRandomStrings);
-		//System.out.println(Arrays.toString(tabRandomStrings));
+		System.out.println(Arrays.toString(tabRandomStrings));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -220,7 +212,7 @@ public class Grafic extends JFrame {
 		btnFacile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				facile ="facile";
-				txtrFacile.setText("C'est parti vous avez 12 essais, saisissez 4 couleurs (Rouge, Bleu, Vert, Jaune)\n"
+				txtrFacile.setText("C'est parti vous avez 12 essais,\nsaisissez 4 couleurs (Rouge, Bleu, Vert, Jaune)\n"
 						+ "Le chiffre 0 veux dire que votre couleur n'est pas dans \nle tableau, le chiffre 1 signifie que votre "
 						+ "couleur est presente \nmais mal placee,le chiffre 2 que votre couleur est \npresente et bien placee");
 			}
@@ -253,11 +245,11 @@ public class Grafic extends JFrame {
 		btnValiderLaSasie.setVisible(false);
 		btnValiderLaSasie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String[] tableauFacilitateur = {"-","-","-","-"};
 				GraficFonction.count1=0;
 				GraficFonction.count2 =0;
 				count--;
 				GraficFonction.utilisateur(tabUser, tabRandomStrings, tableauFacilitateur);
-				//Fonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur);
 				txtrFacile.setText(GraficFonction.affichage(facile,tabUser,tabRandomStrings,tableauFacilitateur));
 				i = 0 ;
 				if(count == 0) {
