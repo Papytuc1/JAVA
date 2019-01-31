@@ -1,8 +1,8 @@
-package semaine9POO;
+package Exo1;
 
-public class Exo1 {
+public class Voiture {
 	private String couleur ="";
-	private String marque="";
+	private Constructeur marque;
 	private int portiere = 5;
 	
 	public String getCouleur() {
@@ -11,12 +11,6 @@ public class Exo1 {
 	public void setCouleur(String couleur) {
 		this.couleur = couleur;
 	}
-	public String getMarque() {
-		return marque;
-	}
-	public void setMarque(String marque) {
-		this.marque = marque;
-	}
 	public int getPortiere() {
 		return portiere;
 	}
@@ -24,8 +18,22 @@ public class Exo1 {
 		this.portiere = portiere;
 	}
 	
-	public String affichage() {
+	public  String infoVoiture() {
 		return "Marque: "+getMarque()+"\nCouleur: "+getCouleur()+"\nNombre de porte: "+getPortiere()+"\n";
+	}
+	
+	public Constructeur getMarque() {
+		return marque;
+	}
+	public void setMarque(Constructeur marque) {
+		this.marque = marque;
+	}
+
+	public enum Constructeur {
+		RENAULT,
+		HONDA,
+		TOYOTA,
+		PROTOTYPE
 	}
 
 }
