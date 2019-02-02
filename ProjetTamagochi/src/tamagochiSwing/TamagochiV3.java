@@ -1,16 +1,19 @@
-package TamagochiV2;
+package tamagochiSwing;
 
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-public class TamagochiV2 {
+
+public class TamagochiV3 {
 	Scanner scanner = new Scanner(System.in);
 	private static int age = 0;
 	private int bonheur = 2;
 	private int poid = 2;
 	private int faim = 0;
 	private String sexe ="";
-	private String nom ="";
+	private String nom ="Regis";
 	private int repos =1;
 	private int toilette = 2;
 	/* Getteur/Setteur*/
@@ -33,7 +36,7 @@ public class TamagochiV2 {
 	}
 
 	private static void setAge(int age) {
-		TamagochiV2.age = age;
+		TamagochiV3.age = age;
 	}
 
 	public int getPoid() {
@@ -119,7 +122,6 @@ public class TamagochiV2 {
 	 * methode qui increment le poid et la faim
 	 */
 	public void nourir() {
-		System.out.println(phraseManger());
 		faim ++;
 		poid++;
 	}
@@ -140,7 +142,6 @@ public class TamagochiV2 {
 	 * decrement la faim et le poid
 	 */
 	public void peche() {
-		phrasePeche();
 		bonheur++;
 		faim --;
 		poid--;
@@ -151,7 +152,6 @@ public class TamagochiV2 {
 	 * increment le bonheur et le repos
 	 */
 	public void faireSport() {
-		phraseSport();
 		faim--;
 		bonheur++;
 		poid--;
@@ -162,7 +162,6 @@ public class TamagochiV2 {
 	 * methode qui decrement la proprete
 	 */
 	public void laver() {
-		System.out.println(phraseLaver());
 		toilette--;
 	}
 	/*
@@ -170,7 +169,6 @@ public class TamagochiV2 {
 	 * decrement le repos
 	 */
 	public void tele() {
-		phraseTele();
 		poid++;
 		bonheur++;
 		repos--;
@@ -179,7 +177,6 @@ public class TamagochiV2 {
 	 * methode qui increment le poid le bonheur et le repos
 	 */
 	public void jeu() {
-		phraseJeu();
 		poid++;
 		bonheur ++;
 		repos++;
@@ -188,7 +185,6 @@ public class TamagochiV2 {
 	 * methode qui increment le bonheur
 	 */
 	public void caresse() {
-		phraseCaresse();
 		bonheur++;
 	}
 	
@@ -203,129 +199,135 @@ public class TamagochiV2 {
 	/*
 	 * methode qui permet de check le bonheur et de retourner une phrase en conséquence
 	 */
-	public void statusBonheur(){
+	public String statusBonheur(){
+		String statusBonheur ="";
 		switch(bonheur) {
 		case -3: case -4 :
-			System.err.println("la je suis en totale depression, si ca continue je vais faire une connerie");
+			statusBonheur ="la je suis en totale depression, si ca continue je vais faire une connerie";
 			break;
 		case 0  : case -1 : case -2:
-			System.out.println("Je suis tres triste");
+			statusBonheur ="Je suis tres triste";
 			break;
 		case 1: case 2:
-			System.out.println("Je vais plutot bien");
+			statusBonheur ="Je vais plutot bien";
 			break;
 		case 3: case 4:
-			System.out.println("Je vais super bien");
+			statusBonheur ="Je vais super bien";
 			break;
 		case 5:
-			System.err.println("Je pete la forme, si ca continue je vais plus me sentir");
+			statusBonheur ="Je pete la forme, si ca continue je vais plus me sentir";
 			break;
-		default:System.err.println("error bonheur");
+		default:statusBonheur ="error bonheur";
 		break;
 		}
+		return statusBonheur;
 	}
 	/*
 	 * methode qui permet de check le poid et de retourner une phrase en conséquence
 	 */
-	public void statusPoid() {
+	public String statusPoid() {
+		String statusPoid ="";
 		switch(poid) {
 		case -3 : case -4:
-			System.err.println("Ma tête tourne je vais flancher");
+			statusPoid = "Ma tête tourne je vais flancher";
 			break;
 		case 0 : case-1: case -2:
-			System.out.println("Je suis super maigre je me sent pas bien");
+			statusPoid= "Je suis super maigre je me sent pas bien";
 			break;
 		case 1: case 2:
-			System.out.println("je suis maigrichon mais ça va");
+			statusPoid= "je suis maigrichon mais ca va";
 			break;
 		case 3 : case 4:
-			System.out.println("Je me sens en forme");
+			statusPoid= "Je me sens en forme";
 			break;
 		case 5:
-			System.err.println("Je suis un peux gros il me faudrais une activitées");
+			statusPoid = "Je suis un peux gros il me faudrais une activitees";
 			break;
-		default : System.err.println("error poid");
+		default : statusPoid = "error poid";
 		break;
 		}
+		return statusPoid;
 	}	
 	/*
 	 * methode qui permet de check la faim et de retourner une phrase en conséquence
 	 */
-	public void statusFaim() {		
+	public String statusFaim() {	
+		String statusFaim ="";
 		switch(faim) {
 		case -3 : case -4 :
-			System.err.println("NOURISSEZ MOIIII !!! NOURISSEZ MOIIII !!!");
+			statusFaim ="NOURISSEZ MOIIII !!! NOURISSEZ MOIIII !!!";
 			break;
 		case 0 : case -1: case -2 :
-			System.out.println("J'ai trés faim!");
+			statusFaim ="J'ai tres faim!";
 			break;
 		case 1: case 2:
-			System.out.println("Je sent mon ventre gargouiller mais ca peux aller");
+			statusFaim ="Je sent mon ventre gargouiller mais ca peux aller";
 			break;
 		case 3: case 4:
-			System.out.println("Je sens mon ventre bien plein, NIQUEL");
+			statusFaim ="Je sens mon ventre bien plein, NIQUEL";
 			break;
 		case 5:
-			System.err.println("Je commence a beaucoup trop manger je crain le pire");
+			statusFaim ="Je commence a beaucoup trop manger je crain le pire";
 			break;
-		default : System.err.println("error faim");	
+		default : statusFaim ="error faim";	
 		break;
 		}
+		return statusFaim ;
 	}
 	/*
 	 * methode qui permet de check le repos et de retourner une phrase en conséquence
 	 */
-	public void statusRepos() {
+	public String statusRepos() {
+		String statusRepos ="";
 		switch (repos) {
 		case 0:
-			System.err.println("Je suis tellement epuise que j'ai des hallucination");
+			statusRepos ="Je suis tellement epuise que j'ai des hallucination";
 		case 1:
-			System.out.println("Je suis epuise");
+			statusRepos ="Je suis epuise";
 			break;
 		case 2 :
-			System.out.println("Je me sent en pleinne forme");
+			statusRepos ="Je me sent en pleinne forme";
 			break;
-		default : System.out.println("Je suis super repose");
+		default : statusRepos ="Je suis super repose";
 		break;
 		}
+		return statusRepos ;
 	}
 	/*
 	 * methode qui permet de check la proprete et de retourner une phrase en conséquence
 	 */
-	public void statusToilettage() {
+	public String statusToilettage() {
+		String statusToilettage ="";
 		switch (toilette) {
 
 		case 1:
-			System.out.println("Je suis tout degeulasse aled");
+			statusToilettage ="Je suis tout degeulasse aled";
 			break;
 		case 2:
-			System.out.println("Grouuu je suis tout propre");
+			statusToilettage ="Grouuu je suis tout propre";
 			break;
 		case 3 :
-			System.out.println("C'est bon je crois que je brille maintenant");
+			statusToilettage ="C'est bon je crois que je brille maintenant";
 			break;
 		default:
 		break;
 		}
+		return statusToilettage ;
 	}
 	/**
 	 * methode qui regroupe les methodes de statusFaim,Poid,Bonheur,repos et toilettage
 	 * elle permet de toute les lance en une fonction, et donc evite de toutes les 
 	 * appeler dans le main
 	 */
-	public void checkStatus() {
-		statusFaim();
-		statusPoid();
-		statusBonheur();
-		statusRepos();
-		statusToilettage();
+	public String checkStatus() {
+		return statusFaim()+", "+statusPoid()+", "+statusBonheur()+"\n"+statusRepos()+", "+statusToilettage();
 	}
 	/*
 	 * methode qui check la mort selon l'age et retourne une phrase en consequence
 	 */
 	public boolean mortAge(){
 		if(age>10) {
-			System.out.println(getNom()+" est partit rejoindre les ancetres");
+			JOptionPane.showMessageDialog(null, getNom()+" est partit rejoindre les ancetres");
 			return true;
 		}
 		else {
@@ -336,12 +338,13 @@ public class TamagochiV2 {
 	 * methode qui check la mort selon la faim et retourne une phrase en consequence
 	 */
 	public boolean mortFaim() {
+		String mortFaim="";
 		if(faim == -5) {
-			System.err.println(getNom()+" est mort de faim ! VOUS etes un MONSTRE");
+			JOptionPane.showMessageDialog(null, getNom()+" est mort de faim ! VOUS etes un MONSTRE");
 			return true;
 		}
 		else if(faim >5) {
-			System.err.println(getNom()+" s'est etouffé en mangeant trop, il est mort seul devant sa gamelle");
+			JOptionPane.showMessageDialog(null,getNom()+" s'est etouffe en mangeant trop, il est mort seul devant sa gamelle");
 			return true;
 		}
 		else {
@@ -352,12 +355,13 @@ public class TamagochiV2 {
 	 * methode qui check la mort selon le poid et retourne une phrase en consequence
 	 */
 	public boolean mortPoid() {
+		
 		if(poid == -5) {
-			System.err.println(getNom()+" est mort de mal nutrition, quelle tristesse");
+			JOptionPane.showMessageDialog(null,getNom()+" est mort de mal nutrition, quelle tristesse");
 			return true;
 		}
 		else if(poid>5) {
-			System.err.println(getNom()+" est mort suite a une obesite morbide! HORIBLE");
+			JOptionPane.showMessageDialog(null, getNom()+" est mort suite a une obesite morbide! HORIBLE");
 			return true;
 		}
 		else {
@@ -369,11 +373,11 @@ public class TamagochiV2 {
 	 */
 	public boolean mortBonheur() {
 		if(bonheur == -5) {
-			System.err.println(getNom()+" est mort de depression agravees !\nUn drame tout etais noir chez lui la police conclu a un sucide");
+			JOptionPane.showMessageDialog(null,getNom()+" est mort de depression agravees !\nUn drame tout etais noir chez lui la police conclu a un sucide");
 			return true;
 		}
 		else if(bonheur>5) {
-			System.err.println(getNom()+" est mort, il etait tellement content qu'il n'a pas regarder en traversant et s'est fait percute");
+			JOptionPane.showMessageDialog(null,getNom()+" est mort, il etait tellement content qu'il n'a pas regarder en traversant et s'est fait percute");
 			return  true;
 		}
 		else {
@@ -385,7 +389,7 @@ public class TamagochiV2 {
 	 */
 	public boolean mortRepos() {
 		if(repos == -1) {
-			System.out.println(getNom()+" est mort d'epuisement");
+			JOptionPane.showMessageDialog(null,getNom()+" est mort d'epuisement");
 			return true;
 		}
 		else {
@@ -437,97 +441,107 @@ public class TamagochiV2 {
 	/*
 	 * methode qui permet de choisir aleatoirement une phrase pour la peche
 	 */
-	public void phrasePeche(){
+	public String phrasePeche(){
+		String phrasePeche="";
 		int random = (int)(Math.random()*3);
 		switch(random) {
 		case 0:
-			System.out.println("Yeah je vais a la peche a la truite je suis super content");
+			phrasePeche="Yeah je vais a la peche a la truite je suis super content";
 			break;
 		case 1:
-			System.out.println("Oh tiens je vais aller a la peche au gros, la mer ca me connais");
+			phrasePeche="Oh tiens je vais aller a la peche au gros, la mer ca me connais";
 			break;
 		case 2 :
-			System.out.println("Hey Aujourd'hui je vais a la pisciculture !!!");
+			phrasePeche="Hey Aujourd'hui je vais a la pisciculture !!!";
 			break;
-			default : System.err.println("error phrasePeche");
+			default : phrasePeche="error phrasePeche";
 			break;
 		}
+		return phrasePeche;
 	}
 	/*
 	 * methode qui permet de choisir aleatoirement une phrase pour le sport
 	 */
-	public void phraseSport(){
+	public String phraseSport(){
+		String phraseSport="";
 		int random = (int)(Math.random()*3);
 		switch(random) {
 		case 0:
-			System.out.println("Oh cool je vais aller a la salle today");
+			phraseSport="Oh cool je vais aller a la salle today";
 			break;
 		case 1:
-			System.out.println("Ok je file sur le tapis de course");
+			phraseSport="Ok je file sur le tapis de course";
 			break;
 		case 2 :
-			System.out.println("Bon ok je vais me forcer j'avais pas trop envie mais pour toi je le fais!!!");
+			phraseSport="Bon ok je vais me forcer j'avais pas trop envie mais pour toi je le fais!!!";
 			break;
-			default : System.err.println("error phraseSport");
+			default : phraseSport="error phraseSport";
 			break;
 		}
+		return phraseSport;
 	}
 	/*
 	 * methode qui permet de choisir aleatoirement une phrase pour les caresses
 	 */
-	public void phraseCaresse(){
+	public String phraseCaresse(){
+		String phraseCaresse = "";
 		int random = (int)(Math.random()*3);
 		switch(random) {
 		case 0:
-			System.out.println(getNom()+"ronrone tres fort");
+			phraseCaresse =getNom()+"ronrone tres fort";
 			break;
 		case 1:
-			System.out.println(getNom()+" est super content");
+			phraseCaresse =getNom()+" est super content";
 			break;
 		case 2 :
-			System.out.println("grrr rou rou");
+			phraseCaresse ="grrr rou rou";
 			break;
-			default : System.err.println("error phraseCaresse");
+			default : phraseCaresse ="error phraseCaresse";
 			break;
 		}
+		return phraseCaresse ;
 	}
 	/*
 	 * methode qui permet de choisir aleatoirement une phrase pour les caresses
 	 */
-	public void phraseJeu(){
+	public String phraseJeu(){
+		String phraseJeu ="";
 		int random = (int)(Math.random()*3);
 		switch(random) {
 		case 0:
-			System.out.println("Yeah je vais m'eclater sur Ark");
+			phraseJeu ="Yeah je vais m'eclater sur Ark";
 			break;
 		case 1:
-			System.out.println("Super je vais jouer avec un pote a factorio");
+			phraseJeu ="Super je vais jouer avec un pote a factorio";
 			break;
 		case 2 :
-			System.out.println("Bon ok cette foi je bat ma pote sur just dance");
+			phraseJeu ="Bon ok cette foi je bat ma pote sur just dance";
 			break;
-			default : System.err.println("error phraseJeu");
+			default :phraseJeu ="error phraseJeu";
 			break;
 		}
+		return phraseJeu ;
 	}
 	/*
 	 * methode qui permet de choisir aleatoirement une phrase pour la tele
 	 */
-	public void phraseTele(){
+	public String phraseTele(){
+		String phraseTele= "";
 		int random = (int)(Math.random()*3);
 		switch(random) {
 		case 0:
-			System.out.println("dac je vais aller mater un doc sur nat geo wild");
+			phraseTele="dac je vais aller mater un doc sur nat geo wild";
 			break;
 		case 1:
-			System.out.println("Okay je vais me mettre le seigneur des anneaux version longue tranquilou");
+			phraseTele="Okay je vais me mettre le seigneur des anneaux version longue tranquilou";
 			break;
 		case 2 :
-			System.out.println("dac je vais mater le hobbit cette foi tiens !!");
+			phraseTele="dac je vais mater le hobbit cette foi tiens !!";
 			break;
-			default : System.err.println("error phraseTele");
+			default : phraseTele="error phraseTele";
 			break;
 		}
+		return phraseTele;
 	}
 	public String phraseManger(){
 		String phraseManger= "";
