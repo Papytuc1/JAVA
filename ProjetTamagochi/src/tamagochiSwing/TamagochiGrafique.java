@@ -34,6 +34,7 @@ public class TamagochiGrafique {
 				try {
 					TamagochiGrafique window = new TamagochiGrafique();
 					window.frame.setVisible(true);
+					window.frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -349,10 +350,8 @@ public class TamagochiGrafique {
 		});
 		btnCaresse.setBounds(127, 337, 89, 23);
 		panel.add(btnCaresse);
-		//C:\\Users\\kevin\\git\\Java\\ProjetTamagochi\\src\\tamagochiSwing\\G6J2.gif
 		JLabel lblNewLabel = new JLabel("New label");
-		String image = new File("src\\G6J2.gif").getAbsolutePath();
-		lblNewLabel.setIcon(new ImageIcon(image));
+		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("G6J2.gif")));
 		lblNewLabel.setBounds(0, 0, 581, 442);
 		frame.getContentPane().add(lblNewLabel);
 		btnTele.setVisible(false);
