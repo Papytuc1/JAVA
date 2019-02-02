@@ -28,11 +28,10 @@ public class Grafic extends JFrame {
 	/*
 	 * fonction Jdialog qui affiche une image en cas de lose
 	 */
-	public static JDialog lose() {
+	public JDialog lose() {
 		JDialog dialog = new JDialog();
 		dialog.setUndecorated(true);
-		String image = new File("lose.gif").getAbsolutePath();
-		JLabel lose = new JLabel( new ImageIcon(image) );
+		JLabel lose = new JLabel(new ImageIcon(getClass().getResource("lose.gif")));
 		dialog.getContentPane().add( lose );
 		dialog.pack();
 		dialog.setLocationRelativeTo(null);
@@ -42,11 +41,10 @@ public class Grafic extends JFrame {
 	/*
 	 * fonction JDialog qui affiche une image en cas de win
 	 */
-	public static JDialog winner() {
+	public  JDialog winner() {
 		JDialog dialog = new JDialog();
 		dialog.setUndecorated(true);
-		String image = new File("dab.gif").getAbsolutePath();
-		JLabel dab = new JLabel( new ImageIcon(image) );
+		JLabel dab = new JLabel(new ImageIcon(getClass().getResource("dab.gif")));
 		dialog.getContentPane().add( dab );
 		dialog.pack();
 		dialog.setLocationRelativeTo(null);
@@ -56,20 +54,18 @@ public class Grafic extends JFrame {
 	/*
 	 * fonction qui affiche un background anim� en cas de la selection facile
 	 */
-	public static JLabel Paradise() {
+	public  JLabel Paradise() {
 		JLabel lblNewLabel = new JLabel("New label");
-		String image = new File("Paradise.gif").getAbsolutePath();
-		lblNewLabel.setIcon(new ImageIcon(image));
+		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("Paradise.gif")));
 		contentPane.add(lblNewLabel);
 		return lblNewLabel;
 	}
 	/*
 	 * fonction qui affiche un background anim� en cas de la selection difficile
 	 */
-	public static JLabel Hell() {
+	public  JLabel Hell() {
 		JLabel lblHell = new JLabel("Hell");
-		String image = new File("Hell.gif").getAbsolutePath();
-		lblHell.setIcon(new ImageIcon(image));
+		lblHell.setIcon(new ImageIcon(getClass().getResource("Hell.gif")));
 		contentPane.add(lblHell);
 		return lblHell;
 		
