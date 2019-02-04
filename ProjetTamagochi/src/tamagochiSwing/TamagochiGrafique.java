@@ -24,7 +24,6 @@ public class TamagochiGrafique {
 	TamagochiV3 tamagochiV3 = new TamagochiV3();
 	private JFrame frame;
 	int i =0;
-
 	/**
 	 * Launch the application.
 	 */
@@ -87,7 +86,7 @@ public class TamagochiGrafique {
 		panel_1.add(btnStatus);
 		btnStatus.setFont(new Font("MV Boli", Font.BOLD, 14));
 		Panel panel_2 = new Panel();
-		panel_2.setBounds(139, 345, 312, 74);
+		panel_2.setBounds(139, 345, 312, 98);
 		frame.getContentPane().add(panel_2);
 		JButton btnJeu = new JButton("Jeu");
 		panel_2.add(btnJeu);
@@ -105,12 +104,14 @@ public class TamagochiGrafique {
 		btnPeche.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
 				if(i<3) {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("peche.gif")));
 					tamagochiV3.peche();
 					txtpnTest.setText(tamagochiV3.phrasePeche());
 					tamagochiV3.checkMort();
 					i++;				
 				}
 				else {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("attente.gif")));
 					txtpnTest.setText("il ce fait tard pour "+tamagochiV3.getNom()+". Profitons en pour regarder son status");
 					btnStatus.setVisible(true);
 					btnLaver.setVisible(false);
@@ -131,12 +132,14 @@ public class TamagochiGrafique {
 		btnManger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
 				if(i<3) {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("manger2.gif")));
 					tamagochiV3.nourir();
 					txtpnTest.setText(tamagochiV3.phraseManger());
 					tamagochiV3.checkMort();
 					i++;
 				}
 				else {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("attente.gif")));
 					txtpnTest.setText("il ce fait tard pour "+tamagochiV3.getNom()+". Profitons en pour regarder son status");
 					btnStatus.setVisible(true);
 					btnLaver.setVisible(false);
@@ -159,12 +162,14 @@ public class TamagochiGrafique {
 		btnLaver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
 				if(i<3) {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("douche.gif")));
 					tamagochiV3.laver();
 					txtpnTest.setText(tamagochiV3.phraseLaver());
 					tamagochiV3.checkMort();
 					i++;
 				}
 				else {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("attente.gif")));
 					txtpnTest.setText("il ce fait tard pour "+tamagochiV3.getNom()+". Profitons en pour regarder son status");
 					btnStatus.setVisible(true);
 					btnLaver.setVisible(false);
@@ -196,6 +201,7 @@ public class TamagochiGrafique {
 					i++;
 				}
 				else {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("attente.gif")));
 					txtpnTest.setText("il ce fait tard pour "+tamagochiV3.getNom()+". Profitons en pour regarder son status");
 					btnStatus.setVisible(true);
 					btnLaver.setVisible(false);
@@ -222,6 +228,7 @@ public class TamagochiGrafique {
 					i++;
 				}
 				else {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("attente.gif")));
 					txtpnTest.setText("il ce fait tard pour "+tamagochiV3.getNom()+". Profitons en pour regarder son status");
 					btnStatus.setVisible(true);
 					btnLaver.setVisible(false);
@@ -248,7 +255,7 @@ public class TamagochiGrafique {
 		txtpnTest.setFont(new Font("MV Boli", Font.BOLD, 14));
 		txtpnTest.setText("Bonjour et bienvenue dans LE tamagotchi");
 
-		lblNewLabel.setBounds(75, 66, 415, 199);
+		lblNewLabel.setBounds(140, 55, 298, 267);
 		frame.getContentPane().add(lblNewLabel);
 
 		btnSport.addActionListener(new ActionListener() {
@@ -260,6 +267,7 @@ public class TamagochiGrafique {
 					i++;
 				}
 				else {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("attente.gif")));
 					txtpnTest.setText("il ce fait tard pour "+tamagochiV3.getNom()+". Profitons en pour regarder son status");
 					btnStatus.setVisible(true);
 					btnLaver.setVisible(false);
@@ -284,6 +292,7 @@ public class TamagochiGrafique {
 					i++;
 				}
 				else {
+					lblNewLabel.setIcon(new ImageIcon(getClass().getResource("attente.gif")));
 					txtpnTest.setText("il ce fait tard pour "+tamagochiV3.getNom()+". Profitons en pour regarder son status");
 					btnStatus.setVisible(true);
 					btnLaver.setVisible(false);
@@ -327,6 +336,7 @@ public class TamagochiGrafique {
 		continuer1.setVisible(false);
 		continuer1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setIcon(new ImageIcon(getClass().getResource("main.gif")));
 				tamagochiV3.eclosion();
 				txtpnTest.setText("Votre tamagochi est "+tamagochiV3.getSexe()+" c'est cool non ?\nMaintenant continuons notre aventure ;)");
 				continuer1.setVisible(false);
@@ -336,6 +346,7 @@ public class TamagochiGrafique {
 		continuer2.setVisible(false);
 		continuer2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setIcon(new ImageIcon(getClass().getResource("saut.gif")));
 				txtpnTest.setText("Votre tamagotchi s'appel "+tamagochiV3.getNom()+" C'est super  l'aventure peut commencer\n"+tamagochiV3.getNom()+" Peux faire 3 activitees par jour.\nAttention a ce qu'il n'en meurt pas. Maintenant regardons son status\"");		
 
 				continuer2.setVisible(false);
@@ -345,6 +356,7 @@ public class TamagochiGrafique {
 		continuer3.setVisible(false);
 		continuer3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				lblNewLabel.setIcon(new ImageIcon(getClass().getResource("attente.gif")));
 				continuer3.setVisible(false);
 				txtpnTest.setVisible(false);
 				txtpnTest.setVisible(true);
