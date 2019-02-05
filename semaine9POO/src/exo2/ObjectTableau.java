@@ -26,7 +26,7 @@ public class ObjectTableau {
 
 	public int[] push() {
 		tab = new int[entier];
-		for(int i=1; i<entier+1;i++) {
+		for(int i=1; i<tab.length+1;i++) {
 			tab[i-1]=i;
 		}
 		return tab;
@@ -46,7 +46,7 @@ public class ObjectTableau {
 	}
 	public int[] pushRandom() {
 		tab = new int[entier];
-		for(int i=1; i<entier+1;i++) {
+		for(int i=1; i<tab.length+1;i++) {
 			tab[i-1]= (int)(Math.random()*9);
 		}
 		return tab;
@@ -104,11 +104,14 @@ public class ObjectTableau {
 	}
 	public void inverse() {
 		System.out.print("[");
+		int inverse = 0;
 		for (int i = tab.length-1 ; i>=0 ; i--) {
 			if(i != -1 && i != tab.length-1) {
 				System.out.print(",");
 			}
-			System.out.print(tab[i]);
+			inverse = tab[i];
+			tab[i]=inverse;
+			System.out.println(tab[i]);
 		}
 		System.out.println("]");
 	}

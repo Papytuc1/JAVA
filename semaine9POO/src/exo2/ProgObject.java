@@ -14,7 +14,7 @@ public class ProgObject {
 		//tableau.push();
 		tableau.pushRandom();//je génére un tableau aléatoire pour la suite de l'exo
 		tableau.affichage();
-		System.out.println("Ici le nombre d'instanciation de mon objet "+tableau.getInstance());
+		System.out.println("Ici le nombre d'instanciation de mon objet "+ObjectTableau.getInstance());
 		System.out.println("Ici la valeur minimal "+tableau.intMinimum());
 		System.out.println("Ici la valeur MAXIMAl "+tableau.intMaximum());
 		System.out.println("Ici la somme du tableau "+tableau.somme());
