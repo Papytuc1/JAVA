@@ -6,6 +6,9 @@ import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.SpringLayout;
+
+import Tamagochi.test;
+
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
@@ -117,8 +120,11 @@ public class TamagochiGrafique {
 					lblNewLabel.setIcon((image("peche")));
 					tamagochiV3.peche();
 					txtpnTest.setText(tamagochiV3.phrasePeche());
-					tamagochiV3.checkMort();
-					i++;			
+					i++;		
+					if(tamagochiV3.checkMort()==true) {
+						lblNewLabel.setIcon((image("mort")));
+						panel_2.removeAll();
+					}
 				}
 				else {
 					lblNewLabel.setIcon((image("attente")));
@@ -142,11 +148,14 @@ public class TamagochiGrafique {
 		btnManger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
 				if(i<3) {
-					lblNewLabel.setIcon((image("manger2")));
+					lblNewLabel.setIcon((image("manger")));
 					tamagochiV3.nourir();
 					txtpnTest.setText(tamagochiV3.phraseManger());
-					tamagochiV3.checkMort();
 					i++;
+					if(tamagochiV3.checkMort()==true) {
+						lblNewLabel.setIcon((image("mort")));
+						panel_2.hide();
+					}
 				}
 				else {
 					lblNewLabel.setIcon((image("attente")));
@@ -175,7 +184,10 @@ public class TamagochiGrafique {
 					lblNewLabel.setIcon((image("douche")));
 					tamagochiV3.laver();
 					txtpnTest.setText(tamagochiV3.phraseLaver());
-					tamagochiV3.checkMort();
+					if(tamagochiV3.checkMort()==true) {
+						lblNewLabel.setIcon((image("mort")));
+						panel_2.hide();
+					}
 					i++;
 				}
 				else {
@@ -205,10 +217,14 @@ public class TamagochiGrafique {
 		btnCaresse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(i<3) {
+					lblNewLabel.setIcon((image("caresse")));
 					tamagochiV3.caresse();
-					tamagochiV3.checkMort();
 					txtpnTest.setText(tamagochiV3.phraseCaresse());
 					i++;
+					if(tamagochiV3.checkMort()==true) {
+						lblNewLabel.setIcon((image("mort")));
+						panel_2.hide();
+					}
 				}
 				else {
 					lblNewLabel.setIcon((image("attente")));
@@ -232,10 +248,14 @@ public class TamagochiGrafique {
 			public void actionPerformed(ActionEvent e) {
 
 				if(i<3) {
+					lblNewLabel.setIcon((image("tele")));
 					tamagochiV3.tele();
-					tamagochiV3.checkMort();
 					txtpnTest.setText(tamagochiV3.phraseTele());
 					i++;
+					if(tamagochiV3.checkMort()==true) {
+						lblNewLabel.setIcon((image("mort")));
+						panel_2.hide();
+					}
 				}
 				else {
 					lblNewLabel.setIcon((image("attente")));
@@ -265,16 +285,20 @@ public class TamagochiGrafique {
 		txtpnTest.setFont(new Font("MV Boli", Font.BOLD, 14));
 		txtpnTest.setText("Bonjour et bienvenue dans LE tamagotchi");
 
-		lblNewLabel.setBounds(140, 55, 298, 267);
+		lblNewLabel.setBounds(153, 24, 428, 298);
 		frame.getContentPane().add(lblNewLabel);
 
 		btnSport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			
 				if(i<3) {
+					lblNewLabel.setIcon((image("sport")));
 					tamagochiV3.faireSport();
 					txtpnTest.setText(tamagochiV3.phraseSport());
-					tamagochiV3.checkMort();
 					i++;
+					if(tamagochiV3.checkMort()==true) {
+						lblNewLabel.setIcon((image("mort")));
+						panel_2.hide();
+					}
 				}
 				else {
 					lblNewLabel.setIcon((image("attente")));
@@ -296,10 +320,14 @@ public class TamagochiGrafique {
 		btnJeu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(i<3) {
+					lblNewLabel.setIcon((image("jeu")));
 					tamagochiV3.jeu();
 					txtpnTest.setText(tamagochiV3.phraseJeu());
-					tamagochiV3.checkMort();
 					i++;
+					if(tamagochiV3.checkMort()==true) {
+						lblNewLabel.setIcon((image("mort")));
+						panel_2.hide();
+					}
 				}
 				else {
 					lblNewLabel.setIcon((image("attente")));
