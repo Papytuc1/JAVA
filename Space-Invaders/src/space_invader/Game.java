@@ -51,7 +51,7 @@ public class Game {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
+
 		frame = new JFrame();
 		frame.getContentPane().addMouseListener(new MouseAdapter() {
 			@Override
@@ -64,7 +64,7 @@ public class Game {
 		frame.setBounds(0, 0, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
-		
+
 		JLabel lblVaisseau = new JLabel("");	
 		lblVaisseau.setBackground(Color.BLUE);
 		lblVaisseau.setIcon(sprite("vaisseau"));
@@ -75,7 +75,7 @@ public class Game {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				if(e.getKeyChar()=='d'&& vaisseaux.getX()<738) {
-				vaisseaux.seDeplacerGauche();
+					vaisseaux.seDeplacerGauche();
 				}
 				else if(e.getKeyChar()=='q'&&vaisseaux.getX()>-2) {
 					vaisseaux.seDeplacerDroite();
@@ -92,12 +92,12 @@ public class Game {
 						} catch (InterruptedException e1) {
 							e1.printStackTrace();
 						}
-						}
-					
+					}
+
 				}
 			}
 		});
-	
+
 	}
 
 }
