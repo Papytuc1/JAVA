@@ -43,8 +43,8 @@ public class Vaisseaux extends JLabel{
 		lblVaisseau.setBounds(x-=vitesseDeplacement, y, 64, 64);
 	}
 	public Missiles tirer() {
-		Missiles missiles = new Missiles(this);
-		return missiles;
+		Missiles missile = new Missiles(this);
+		return missile;
 	}
 	
 }

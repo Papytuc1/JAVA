@@ -16,9 +16,13 @@ import java.awt.event.MouseEvent;
 import java.awt.Dimension;
 
 public class Game {
+	int touch;
+	int touchSpace;
 	public static final int VK_Q=81;
 	public static final int VK_D=68;
 	Vaisseaux vaisseaux;
+	Missiles missile;
+	JLabel lblVaisseau;
 	private JFrame frame;
 	public ImageIcon sprite(String image) {
 		ImageIcon sprite = new ImageIcon(getClass().getResource("/ressources/"+image+".gif"));
@@ -65,7 +69,7 @@ public class Game {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 
-		JLabel lblVaisseau = new JLabel("");	
+		lblVaisseau = new JLabel("");	
 		lblVaisseau.setBackground(Color.BLUE);
 		lblVaisseau.setIcon(sprite("vaisseau"));
 		lblVaisseau.setBounds(368, 500, 64, 64);
@@ -73,26 +77,39 @@ public class Game {
 		this.vaisseaux = new Vaisseaux(lblVaisseau);
 		frame.addKeyListener(new KeyAdapter() {  
 			@Override
-			public void keyTyped(KeyEvent e) {
+			public void keyPressed(KeyEvent e) {
 				if(e.getKeyChar()=='d'&& vaisseaux.getX()<738) {
+					touch =1;
 					vaisseaux.seDeplacerGauche();
+					System.out.println(touch);
+				}
+				 if(e.getKeyChar()=='q'&&vaisseaux.getX()>-2) {
+					vaisseaux.seDeplacerDroite();
+				}
+				 if(e.getKeyChar()==' ') {
+					touchSpace=1;
+					missile = vaisseaux.tirer();
+					frame.getContentPane().add(missile.getLblMissile());
+					missile.seDeplacer();
+
+				}
+			}
+		});
+		frame.addKeyListener(new KeyAdapter() {  
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(e.getKeyChar()=='d'&& vaisseaux.getX()<738) {
+					touch =0;
+					System.out.println(touch);
 				}
 				else if(e.getKeyChar()=='q'&&vaisseaux.getX()>-2) {
 					vaisseaux.seDeplacerDroite();
 				}
-				else if(e.getKeyChar()=='z') {
-					vaisseaux.tirer();
-					Missiles missile = vaisseaux.tirer();
+				else if(e.getKeyChar()==' ') {
+					touchSpace=0;
+					missile = vaisseaux.tirer();
 					frame.getContentPane().add(missile.getLblMissile());
 					missile.seDeplacer();
-					while(missile.getPosY() > 0) {
-						missile.seDeplacer();
-						try {
-							Thread.sleep( 10);
-						} catch (InterruptedException e1) {
-							e1.printStackTrace();
-						}
-					}
 
 				}
 			}

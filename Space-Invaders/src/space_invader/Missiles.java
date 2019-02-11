@@ -11,9 +11,9 @@ public class Missiles extends JLabel {
 	private int posY=500;
 	private int deplacement=1;
 	public Missiles(Vaisseaux vaisseau) {
-		this.lblMissile=new JLabel("coucou");
+		this.lblMissile=new JLabel("Missile");
 		lblMissile.setBackground(Color.red);
-		lblMissile.setBounds(vaisseau.getX(), vaisseau.getY(), 20, 20);
+		lblMissile.setBounds(vaisseau.getX(), vaisseau.getY(), 40, 40);
 		this.posX=vaisseau.getX();
 	}
 	public JLabel getLblMissile() {
@@ -44,8 +44,17 @@ public class Missiles extends JLabel {
 		lblMissile.setVisible(true);
 	}
 	public void seDeplacer() {
-		System.out.println(posY);
-		lblMissile.setBounds(posX, posY-=deplacement, 64, 64);
-
+		new Thread(new Runnable() {
+			public void run() {
+				while(posY > 0) {
+					lblMissile.setBounds(posX, posY-=deplacement, 40, 40);
+					try {
+						Thread.sleep(1);
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		}).start();
 	}
 }
