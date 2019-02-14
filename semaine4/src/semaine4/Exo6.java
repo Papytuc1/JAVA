@@ -21,12 +21,13 @@ public class Exo6 {
 			if(nombreRandom>saisie) {
 				System.out.println("Votre chiffre est " +saisie+" mais c'est plus");
 				count++;
-
 			}
+			
 			else if(nombreRandom< saisie) {
 				System.out.println("Votre chiffre est " +saisie+" mais c'est c'est moins");
 				count++;
 			}
+			
 			else if (nombreRandom == saisie) {
 				newTime = LocalTime.now();
 				Duration duree = Duration.between(oldTime, newTime);

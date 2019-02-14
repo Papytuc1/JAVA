@@ -280,9 +280,9 @@ public class TamagochiGrafique {
 
 		txtpnTest.setBounds(0, 0, 518, 96);
 		frame.getContentPane().add(txtpnTest);
-		txtpnTest.setForeground(new Color(0, 0, 255));
+		txtpnTest.setForeground(new Color(0, 0, 128));
 		txtpnTest.setOpaque(false);
-		txtpnTest.setFont(new Font("MV Boli", Font.BOLD, 14));
+		txtpnTest.setFont(new Font("Gargi", Font.BOLD, 14));
 		txtpnTest.setText("Bonjour et bienvenue dans LE tamagotchi");
 
 		lblNewLabel.setBounds(153, 24, 428, 298);
