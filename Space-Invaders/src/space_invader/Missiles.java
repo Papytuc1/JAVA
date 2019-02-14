@@ -7,13 +7,13 @@ import javax.swing.JLabel;
 
 public class Missiles extends JLabel {
 	private JLabel lblMissile;
-	private int posX=500;
+	private int posX;
 	private int posY=500;
 	private int deplacement=1;
 	public Missiles(Vaisseaux vaisseau) {
-		this.lblMissile=new JLabel("Missile");
-		lblMissile.setBackground(Color.red);
-		lblMissile.setBounds(vaisseau.getX(), vaisseau.getY(), 40, 40);
+		this.lblMissile=new JLabel();
+		lblMissile.setIcon(new ImageIcon(getClass().getResource("/ressources/Missile1.gif")));
+		lblMissile.setBounds(vaisseau.getX(), vaisseau.getY(), 6, 2);
 		this.posX=vaisseau.getX();
 	}
 	public JLabel getLblMissile() {
@@ -47,13 +47,14 @@ public class Missiles extends JLabel {
 		new Thread(new Runnable() {
 			public void run() {
 				while(posY > 0) {
-					lblMissile.setBounds(posX, posY-=deplacement, 40, 40);
+					lblMissile.setBounds(posX, posY-=deplacement, 50, 50);
 					try {
-						Thread.sleep(1);
+						Thread.sleep(3);
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
 				}
+				lblMissile.setVisible(false);
 			}
 		}).start();
 	}

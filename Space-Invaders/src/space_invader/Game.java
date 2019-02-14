@@ -13,13 +13,12 @@ import java.awt.Rectangle;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashSet;
+import java.util.Set;
 import java.awt.Dimension;
 
 public class Game {
-	int touch;
-	int touchSpace;
-	public static final int VK_Q=81;
-	public static final int VK_D=68;
+	Set<Character> touche = new HashSet<Character>();
 	Vaisseaux vaisseaux;
 	Missiles missile;
 	JLabel lblVaisseau;
@@ -61,9 +60,12 @@ public class Game {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				System.out.println(arg0);
+				missile = vaisseaux.tirer();
+				frame.getContentPane().add(missile.getLblMissile());
+				missile.seDeplacer();
 			}
 		});
-		frame.getContentPane().setBackground(Color.WHITE);
+		frame.getContentPane().setBackground(Color.BLACK);
 		frame.getContentPane().setLayout(null);
 		frame.setBounds(0, 0, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,40 +79,28 @@ public class Game {
 		this.vaisseaux = new Vaisseaux(lblVaisseau);
 		frame.addKeyListener(new KeyAdapter() {  
 			@Override
-			public void keyPressed(KeyEvent e) {
-				if(e.getKeyChar()=='d'&& vaisseaux.getX()<738) {
-					touch =1;
+			public synchronized void keyPressed(KeyEvent e) {
+				if(e.getKeyChar()=='d'&& vaisseaux.getX()<738) {					
+					touche.add(e.getKeyChar());					
 					vaisseaux.seDeplacerGauche();
-					System.out.println(touch);
 				}
-				 if(e.getKeyChar()=='q'&&vaisseaux.getX()>-2) {
+				if(e.getKeyChar()=='q'&&vaisseaux.getX()>-2) {
 					vaisseaux.seDeplacerDroite();
 				}
-				 if(e.getKeyChar()==' ') {
-					touchSpace=1;
-					missile = vaisseaux.tirer();
-					frame.getContentPane().add(missile.getLblMissile());
-					missile.seDeplacer();
-
-				}
+				
 			}
 		});
 		frame.addKeyListener(new KeyAdapter() {  
 			@Override
-			public void keyReleased(KeyEvent e) {
+			public synchronized void keyReleased(KeyEvent e) {
 				if(e.getKeyChar()=='d'&& vaisseaux.getX()<738) {
-					touch =0;
-					System.out.println(touch);
+					touche.remove(e.getKeyChar());
 				}
 				else if(e.getKeyChar()=='q'&&vaisseaux.getX()>-2) {
 					vaisseaux.seDeplacerDroite();
 				}
 				else if(e.getKeyChar()==' ') {
-					touchSpace=0;
-					missile = vaisseaux.tirer();
-					frame.getContentPane().add(missile.getLblMissile());
-					missile.seDeplacer();
-
+					touche.remove(e.getKeyChar());
 				}
 			}
 		});

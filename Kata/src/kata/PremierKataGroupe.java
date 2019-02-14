@@ -3,6 +3,7 @@ package kata;
 import java.util.Scanner;
 
 public class PremierKataGroupe {
+	
 	public static void expandedFirstForm(int result) {
 
 		int facteur ; 
