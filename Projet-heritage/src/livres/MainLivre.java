@@ -10,11 +10,11 @@ public class MainLivre {
 		String auteur ;
 		String titre ;
 		int prix;
-		System.out.println("Auteur du livre n°"+(Livre.getId()+1)+"?");
+		System.out.println("Auteur du livre n°"+Livre.getId()+"?");
 		auteur= scanner.nextLine();
-		System.out.println("Titre du livre "+(Livre.getId()+1)+"?");
+		System.out.println("Titre du livre "+Livre.getId()+"?");
 		titre = scanner.nextLine();
-		System.out.println("Prix du livre "+(Livre.getId()+1)+"?");
+		System.out.println("Prix du livre "+Livre.getId()+"?");
 		prix= scanner.nextInt();		
 		scanner.nextLine();
 		Livre livre = new Livre(auteur, titre, prix);
@@ -31,9 +31,8 @@ public class MainLivre {
 			reponse = scanner.nextLine();
 		}
 		for (Iterator iterator = etagere.iterator(); iterator.hasNext();) {
-			System.out.println(etagere.toString());
-			iterator.next();
-
+			Livre livre = (Livre) iterator.next();
+			System.out.println(livre);
 		}
 	}
 
